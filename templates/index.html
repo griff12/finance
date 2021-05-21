@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Current Price</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for symbol in symbols %}
+    <tr>
+      <th scope="row">{{ symbol["symbol"] }}</th>
+      <td>{{ shares[symbol["symbol"]] }}</td>
+      <td>{{ price[symbol["symbol"]] }}</td>
+      <td>{{ value[symbol["symbol"]] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <thead>
+    <tr>
+      <td>CASH</td>
+      <td></td>
+      <td></td>
+      <td>{{ cash }}</td>
+    </tr>
+    <tr>
+      <td>TOTAL</td>
+      <td></td>
+      <td></td>
+      <td>{{ total }}</td>
+    </tr>
+  </thead>
+</table>
+{% endblock %}
